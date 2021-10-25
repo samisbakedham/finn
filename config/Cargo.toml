@@ -1,0 +1,27 @@
+[package]
+name = "finn_config"
+version = "4.4.0"
+authors = ["finn Developers <mimblewimble@lists.launchpad.net>"]
+description = "Configuration for finn, a simple, private and scalable cryptocurrency implementation based on the MimbleWimble chain format."
+license = "Apache-2.0"
+repository = "https://github.com/samisbakedham/finn"
+keywords = [ "crypto", "finn", "mimblewimble" ]
+workspace = ".."
+edition = "2022"
+
+[dependencies]
+rand = "0.6"
+serde = "1"
+serde_derive = "1"
+toml = "0.5"
+dirs = "2.0"
+failure = "0.1"
+failure_derive = "0.1"
+
+finn_core = { path = "../core", version = "4.4.0" }
+finn_servers = { path = "../servers", version = "4.4.0" }
+finn_p2p = { path = "../p2p", version = "4.4.0" }
+finn_util = { path = "../util", version = "4.4.0" }
+
+[dev-dependencies]
+pretty_assertions = "0.6.1"

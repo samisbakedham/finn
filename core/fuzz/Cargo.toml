@@ -1,0 +1,46 @@
+[package]
+name = "finn_core-fuzz"
+version = "0.0.3"
+authors = ["finn Developers <mimblewimble@lists.launchpad.net>"]
+publish = false
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+finn_core = { path = ".."}
+finn_keychain = { path = "../../keychain"}
+[dependencies.libfuzzer-sys]
+git = "https://github.com/rust-fuzz/libfuzzer-sys.git"
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "transaction_read_v1"
+path = "fuzz_targets/transaction_read_v1.rs"
+
+[[bin]]
+name = "transaction_read_v2"
+path = "fuzz_targets/transaction_read_v2.rs"
+
+[[bin]]
+name = "gen-corpus"
+path = "src/main.rs"
+
+[[bin]]
+name = "block_read_v1"
+path = "fuzz_targets/block_read_v1.rs"
+
+[[bin]]
+name = "block_read_v2"
+path = "fuzz_targets/block_read_v2.rs"
+
+[[bin]]
+name = "compact_block_read_v1"
+path = "fuzz_targets/compact_block_read_v1.rs"
+
+[[bin]]
+name = "compact_block_read_v2"
+path = "fuzz_targets/compact_block_read_v2.rs"

@@ -1,0 +1,28 @@
+[package]
+name = "finn_pool_fuzz"
+version = "0.0.0"
+authors = ["Automatically generated"]
+publish = false
+edition = "2018"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+chrono = "0.4.11"
+libfuzzer-sys = "0.3"
+finn_chain = { path = "../../chain" }
+finn_core = { path = "../../core" }
+finn_keychain = { path = "../../keychain" }
+finn_pool = { path = ".." }
+finn_util = { path = "../../util" }
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "transaction_pool"
+path = "fuzz_targets/transaction_pool.rs"
+test = false
+doc = false

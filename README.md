@@ -1,15 +1,48 @@
-<p align="center">
-  <img width="400" height="94" src="https://user-images.githubusercontent.com/8020386/93075419-593ff300-f6b8-11ea-94c2-2b532d2cedbd.png" alt="Grin++">
-</p>
+[![Build Status](https://dev.azure.com/mwc-project/MWC%20Project/_apis/build/status/mwcproject.mwc-node?branchName=master)](https://dev.azure.com/mwc-project/MWC%20Project/_build/latest?definitionId=2&branchName=master)
+[![Chat](https://img.shields.io/discord/539232227360243712)](https://discord.gg/n5dZaty)
+[![Support](https://img.shields.io/badge/support-on%20Discord-brightgreen.svg)](https://discord.gg/n5dZaty)
+[![Documentation Wiki](https://img.shields.io/badge/doc-wiki-blue.svg)](https://github.com/mimblewimble/docs/wiki)
+[![Release Version](https://img.shields.io/github/v/release/mwcproject/mwc-node.svg)](https://github.com/mwcproject/mwc-node/releases)
+[![License](https://img.shields.io/github/license/mwcproject/mwc-node.svg)](https://github.com/mwcproject/mwc-node/blob/master/LICENSE)
 
-![Demo](https://grinplusplus.github.io/screenshots/grinpp_wallet.png)
+# MWC
 
-Website: https://grinplusplus.github.io/
+MWC is an in-progress implementation of the MimbleWimble protocol. Many characteristics are still undefined but the following constitutes a first set of choices:
 
-Wiki: https://github.com/GrinPlusPlus/GrinPlusPlus/wiki
+  * Clean and minimal implementation, and aiming to stay as such.
+  * Follows the Mimblewimble protocol, which provides hidden amounts and scaling advantages.
+  * Cuckoo Cycle proof of work in two variants named Cuckaroo (ASIC-resistant) and Cuckatoo (ASIC-targeted).
+  * Relatively fast block time: one minute.
+  * Fixed block reward over time with a decreasing dilution.
+  * Transaction fees are based on the number of Outputs created/destroyed and total transaction size.
+  * Smooth curve for difficulty adjustments.
 
-### Project Status
-The node and wallet have been released on Mainnet for 64-bit Windows & Mac OS X beta-testing!
+To learn more, read our [introduction to MimbleWimble](doc/intro.md).
 
-### Build Instruction
-See [BUILD.md](BUILD.md).
+## Status
+
+Much is left to be done and [contributions](CONTRIBUTING.md) are welcome (see below).
+
+## Contributing
+
+To get involved, you can read our [contributing docs](CONTRIBUTING.md).
+
+## Getting Started
+
+To learn more about the technology, read our [introduction](doc/intro.md).
+
+
+To build and try out MWC, see the [build docs](doc/build.md).
+
+## Credits
+
+Tom Elvis Jedusor for the first formulation of MimbleWimble.
+
+Andrew Poelstra for his related work and improvements.
+
+John Tromp for the Cuckoo Cycle proof of work.
+
+## License
+
+Apache License v2.0.
+
