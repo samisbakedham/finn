@@ -4,10 +4,10 @@ version = "4.4.0"
 authors = ["finn Developers <mimblewimble@lists.launchpad.net>"]
 description = "Simple, private and scalable cryptocurrency implementation based on the MimbleWimble chain format."
 license = "Apache-2.0"
-repository = "https://github.com/mwcproject/mwc-node"
-keywords = [ "crypto", "mwc", "mimblewimble" ]
+repository = "https://github.com/mwcproject/Finn-node"
+keywords = [ "crypto", "Finn", "mimblewimble" ]
 readme = "README.md"
-exclude = ["**/*.mwc", "**/*.mwc", "**/*.finn", "**/*.finn"]
+exclude = ["**/*.Finn", "**/*.Finn", "**/*.finn", "**/*.finn"]
 build = "src/build/build.rs"
 edition = "2018"
 
@@ -16,7 +16,7 @@ members = ["api", "chain", "config", "core", "keychain", "p2p", "servers", "stor
 exclude = ["etc/gen_gen"]
 
 [[bin]]
-name = "mwc"
+name = "Finn"
 path = "src/bin/finn.rs"
 
 [dependencies]

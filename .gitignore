@@ -1,14 +1,14 @@
 *.swp
 .DS_Store
 .finn*
-.mwc*
+.Finn*
 node*
 !node_clients
 !node_clients.rs
 target
 */Cargo.lock
 *.iml
-mwc.log
+Finn.log
 wallet.seed
 test_output
 wallet_data

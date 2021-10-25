@@ -109,7 +109,7 @@ impl Filter for finnFilter {
 	fn filter(&self, record: &Record<'_>) -> Response {
 		if let Some(module_path) = record.module_path() {
 			if module_path.starts_with("finn")
-				|| module_path.starts_with("mwc")
+				|| module_path.starts_with("finn")
 				|| module_path.contains("libp2p")
 			{
 				return Response::Neutral;

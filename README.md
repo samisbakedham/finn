@@ -1,13 +1,13 @@
-[![Build Status](https://dev.azure.com/mwc-project/MWC%20Project/_apis/build/status/mwcproject.mwc-node?branchName=master)](https://dev.azure.com/mwc-project/MWC%20Project/_build/latest?definitionId=2&branchName=master)
+[![Build Status](https://dev.azure.com/Finn-project/Finn%20Project/_apis/build/status/Finnproject.Finn-node?branchName=master)](https://dev.azure.com/Finn-project/Finn%20Project/_build/latest?definitionId=2&branchName=master)
 [![Chat](https://img.shields.io/discord/539232227360243712)](https://discord.gg/n5dZaty)
 [![Support](https://img.shields.io/badge/support-on%20Discord-brightgreen.svg)](https://discord.gg/n5dZaty)
 [![Documentation Wiki](https://img.shields.io/badge/doc-wiki-blue.svg)](https://github.com/mimblewimble/docs/wiki)
-[![Release Version](https://img.shields.io/github/v/release/mwcproject/mwc-node.svg)](https://github.com/mwcproject/mwc-node/releases)
-[![License](https://img.shields.io/github/license/mwcproject/mwc-node.svg)](https://github.com/mwcproject/mwc-node/blob/master/LICENSE)
+[![Release Version](https://img.shields.io/github/v/release/Finnproject/Finn-node.svg)](https://github.com/Finnproject/Finn-node/releases)
+[![License](https://img.shields.io/github/license/Finnproject/Finn-node.svg)](https://github.com/Finnproject/Finn-node/blob/master/LICENSE)
 
-# MWC
+# Finn
 
-MWC is an in-progress implementation of the MimbleWimble protocol. Many characteristics are still undefined but the following constitutes a first set of choices:
+Finn is an in-progress implementation of the MimbleWimble protocol. Many characteristics are still undefined but the following constitutes a first set of choices:
 
   * Clean and minimal implementation, and aiming to stay as such.
   * Follows the Mimblewimble protocol, which provides hidden amounts and scaling advantages.
@@ -32,7 +32,7 @@ To get involved, you can read our [contributing docs](CONTRIBUTING.md).
 To learn more about the technology, read our [introduction](doc/intro.md).
 
 
-To build and try out MWC, see the [build docs](doc/build.md).
+To build and try out Finn, see the [build docs](doc/build.md).
 
 ## Credits
 
@@ -45,4 +45,3 @@ John Tromp for the Cuckoo Cycle proof of work.
 ## License
 
 Apache License v2.0.
-
