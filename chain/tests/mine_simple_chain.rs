@@ -72,7 +72,7 @@ fn setup_with_status_adapter(dir_name: &str, genesis: Block, adapter: Arc<Status
 
 #[test]
 fn mine_empty_chain() {
-	let chain_dir = ".mwc.empty";
+	let chain_dir = ".finn.empty";
 	clean_output_dir(chain_dir);
 	let chain = mine_chain(chain_dir, 1);
 	assert_eq!(chain.head().unwrap().height, 0);
@@ -81,7 +81,7 @@ fn mine_empty_chain() {
 
 #[test]
 fn mine_short_chain() {
-	let chain_dir = ".mwc.short";
+	let chain_dir = ".finn.short";
 	clean_output_dir(chain_dir);
 	let chain = mine_chain(chain_dir, 4);
 	assert_eq!(chain.head().unwrap().height, 3);
@@ -116,7 +116,7 @@ fn process_block(chain: &Chain, block: &Block) {
 //
 #[test]
 fn test_block_a_block_b_block_b_fork_header_c_fork_block_c() {
-	let chain_dir = ".mwc.block_a_block_b_block_b_fork_header_c_fork_block_c";
+	let chain_dir = ".finn.block_a_block_b_block_b_fork_header_c_fork_block_c";
 	clean_output_dir(chain_dir);
 	global::set_local_chain_type(ChainTypes::AutomatedTesting);
 	let kc = ExtKeychain::from_random_seed(false).unwrap();
@@ -168,7 +168,7 @@ fn test_block_a_block_b_block_b_fork_header_c_fork_block_c() {
 //
 #[test]
 fn test_block_a_block_b_block_b_fork_header_c_fork_block_c_fork() {
-	let chain_dir = ".mwc.block_a_block_b_block_b_fork_header_c_fork_block_c_fork";
+	let chain_dir = ".finn.block_a_block_b_block_b_fork_header_c_fork_block_c_fork";
 	clean_output_dir(chain_dir);
 	global::set_local_chain_type(ChainTypes::AutomatedTesting);
 	let kc = ExtKeychain::from_random_seed(false).unwrap();
@@ -224,7 +224,7 @@ fn test_block_a_block_b_block_b_fork_header_c_fork_block_c_fork() {
 //
 #[test]
 fn test_block_a_header_b_header_b_fork_block_b_fork_block_b_block_c() {
-	let chain_dir = ".mwc.test_block_a_header_b_header_b_fork_block_b_fork_block_b_block_c";
+	let chain_dir = ".finn.test_block_a_header_b_header_b_fork_block_b_fork_block_b_block_c";
 	clean_output_dir(chain_dir);
 	global::set_local_chain_type(ChainTypes::AutomatedTesting);
 	let kc = ExtKeychain::from_random_seed(false).unwrap();
@@ -280,7 +280,7 @@ fn test_block_a_header_b_header_b_fork_block_b_fork_block_b_block_c() {
 //
 #[test]
 fn test_block_a_header_b_header_b_fork_block_b_fork_block_b_block_c_fork() {
-	let chain_dir = ".mwc.test_block_a_header_b_header_b_fork_block_b_fork_block_b_block_c_fork";
+	let chain_dir = ".finn.test_block_a_header_b_header_b_fork_block_b_fork_block_b_block_c_fork";
 	clean_output_dir(chain_dir);
 	global::set_local_chain_type(ChainTypes::AutomatedTesting);
 	let kc = ExtKeychain::from_random_seed(false).unwrap();
@@ -923,7 +923,7 @@ fn actual_diff_iter_output() {
 	let genesis_block = pow::mine_genesis_block().unwrap();
 	let verifier_cache = Arc::new(RwLock::new(LruVerifierCache::new()));
 	let chain = chain::Chain::init(
-		"../.mwc".to_string(),
+		"../.finn".to_string(),
 		Arc::new(NoopAdapter {}),
 		genesis_block,
 		pow::verify_size,

@@ -55,14 +55,14 @@ pub fn client_command(client_args: &ArgMatches<'_>, global_config: GlobalConfig)
 				panic!("Invalid peer address format");
 			}
 		}
-		_ => panic!("Unknown client command, use 'mwc help client' for details"),
+		_ => panic!("Unknown client command, use 'finn help client' for details"),
 	}
 	0
 }
 
 pub fn show_status(config: &ServerConfig, api_secret: Option<String>) {
 	println!();
-	let title = "MWC Server Status".to_string();
+	let title = "finn Server Status".to_string();
 	if term::stdout().is_none() {
 		println!("Could not open terminal");
 		return;
@@ -85,7 +85,7 @@ pub fn show_status(config: &ServerConfig, api_secret: Option<String>) {
 		}
 		Err(_) => writeln!(
 			e,
-			"WARNING: Client failed to get data. Is your `mwc server` offline or broken?"
+			"WARNING: Client failed to get data. Is your `finn server` offline or broken?"
 		)
 		.unwrap(),
 	};

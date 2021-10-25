@@ -1,4 +1,4 @@
-// Copyright 2021 The MWC Developers
+// Copyright 2021 The finn Developers
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -340,7 +340,7 @@ pub fn get_libp2p_connections() -> Vec<PeerId> {
 	}
 }
 
-/// Reporting new discovered mwc-wallet peer. That might be libp2p node as well
+/// Reporting new discovered finn-wallet peer. That might be libp2p node as well
 pub fn add_new_peer(peer: &PeerAddr) -> Result<(), Error> {
 	info!("libp2p adding a new peer {}", peer);
 	let addr = peer.tor_address().map_err(|e| {
@@ -425,7 +425,7 @@ pub async fn run_libp2p_node(
 		.boxed();
 
 	//Ping pond already works. But it is not we needed
-	// mwc-node does nothing, just forming a node with aping.
+	// finn-node does nothing, just forming a node with aping.
 	/*    let config = PingConfig::new()
 			.with_keep_alive(true)
 			.with_interval(Duration::from_secs(600))

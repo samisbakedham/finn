@@ -31,9 +31,9 @@ use std::io::{Read, Write};
 use std::sync::Arc;
 
 /// finn's user agent with current version
-pub const USER_AGENT: &str = concat!("MW/MWC ", env!("CARGO_PKG_VERSION"));
+pub const USER_AGENT: &str = concat!("MW/finn ", env!("CARGO_PKG_VERSION"));
 
-// MWC - Magic number are updated to be different from finn.
+// finn - Magic number are updated to be different from finn.
 /// Magic numbers expected in the header of every message
 const OTHER_MAGIC: [u8; 2] = [21, 19];
 const FLOONET_MAGIC: [u8; 2] = [17, 36];
