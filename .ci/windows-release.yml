@@ -18,17 +18,17 @@ steps:
     condition:  and(succeeded(), contains(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['CI_JOB'], 'release' ))
     inputs:
       sourceFolder: '$(Build.SourcesDirectory)\target\release'
-      contents: 'mwc.exe'
-      targetFolder: '$(Build.BinariesDirectory)\mwc'
+      contents: 'finn.exe'
+      targetFolder: '$(Build.BinariesDirectory)\finn'
   - task: ArchiveFiles@2
     displayName: Gather assets
     condition:  and(succeeded(), contains(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['CI_JOB'], 'release' ))
     inputs:
-      rootFolderOrFile: '$(Build.BinariesDirectory)\mwc'
+      rootFolderOrFile: '$(Build.BinariesDirectory)\finn'
       archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)\mwc-node-$(build.my_tag)-$(build.platform).zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)\finn-node-$(build.my_tag)-$(build.platform).zip'
   - script: |
-      powershell -Command "cd $(Build.ArtifactStagingDirectory); get-filehash -algorithm sha256 mwc-node-$(build.my_tag)-$(build.platform).zip | Format-List |  Out-String | ForEach-Object { $_.Trim() } > mwc-node-$(build.my_tag)-$(build.platform)-sha256sum.txt"
+      powershell -Command "cd $(Build.ArtifactStagingDirectory); get-filehash -algorithm sha256 finn-node-$(build.my_tag)-$(build.platform).zip | Format-List |  Out-String | ForEach-Object { $_.Trim() } > finn-node-$(build.my_tag)-$(build.platform)-sha256sum.txt"
     displayName: Create Checksum
     condition:  and(succeeded(), contains(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['CI_JOB'], 'release' ))
   - task: GithubRelease@0
@@ -36,13 +36,13 @@ steps:
     condition: and(succeeded(), startsWith(variables['Build.SourceBranch'], 'refs/tags/'), eq(variables['CI_JOB'], 'release' ))
     inputs:
       gitHubConnection: 'github.com_bayk'
-      repositoryName: 'mwcproject/mwc-node'
+      repositoryName: 'finnproject/finn-node'
       action: 'edit'
       tagSource: "Git tag"
       tag: '$(build.my_tag)'
       assets: |
-        $(Build.ArtifactStagingDirectory)\mwc-node-$(build.my_tag)-$(build.platform).zip
-        $(Build.ArtifactStagingDirectory)\mwc-node-$(build.my_tag)-$(build.platform)-sha256sum.txt
+        $(Build.ArtifactStagingDirectory)\finn-node-$(build.my_tag)-$(build.platform).zip
+        $(Build.ArtifactStagingDirectory)\finn-node-$(build.my_tag)-$(build.platform)-sha256sum.txt
       title: '$(build.my_tag)'
       assetUploadMode: 'replace'
       addChangeLog: true

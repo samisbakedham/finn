@@ -1,25 +1,25 @@
 name: finn
 version: "4.1.0"
 about: Lightweight implementation of the MimbleWimble protocol.
-author: The MWC Team
+author: The finn Team
 
 args:
   - floonet:
-      help: Run mwc against the Floonet (as opposed to mainnet)
+      help: Run finn against the Floonet (as opposed to mainnet)
       long: floonet
       takes_value: false
   - usernet:
-      help: Run mwc as a local-only network. Doesn't block peer connections but will not connect to any peer or seed
+      help: Run finn as a local-only network. Doesn't block peer connections but will not connect to any peer or seed
       long: usernet
       takes_value: false
 subcommands:
   - clean:
-      about: Clean MWC chain data
+      about: Clean finn chain data
   - server:
-      about: Control the MWC server
+      about: Control the finn server
       args:
         - config_file:
-            help: Path to a mwc-server.toml configuration file
+            help: Path to a finn-server.toml configuration file
             short: c
             long: config_file
             takes_value: true
@@ -49,14 +49,14 @@ subcommands:
             takes_value: false
       subcommands:
         - config:
-            about: Generate a configuration mwc-server.toml file in the current directory
+            about: Generate a configuration finn-server.toml file in the current directory
         - run:
-            about: Run the MWC server in this console
+            about: Run the finn server in this console
   - client:
-      about: Communicates with the MWC server
+      about: Communicates with the finn server
       subcommands:
         - status:
-            about: Current status of the MWC chain
+            about: Current status of the finn chain
         - listconnectedpeers:
             about: Print a list of currently connected peers
         - ban:

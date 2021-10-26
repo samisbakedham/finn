@@ -26,8 +26,8 @@ pr:
 variables:
   RUST_BACKTRACE: '1'
   RUSTFLAGS: '-C debug-assertions'
-  ghpages_user: 'mwcproject'
-  ghpages_repo: 'mwcproject.github.io'
+  ghpages_user: 'finnproject'
+  ghpages_repo: 'finnproject.github.io'
   ghpages_auth_header: '$(echo -n "${ghpages_user}:$(github_pat)" | base64);'
 
 jobs:

@@ -34,9 +34,9 @@ use crate::util::logger::LoggingConfig;
 
 /// The default file name to use when trying to derive
 /// the node config file location
-pub const SERVER_CONFIG_FILE_NAME: &str = "mwc-server.toml";
-const SERVER_LOG_FILE_NAME: &str = "mwc-server.log";
-const finn_HOME: &str = ".mwc";
+pub const SERVER_CONFIG_FILE_NAME: &str = "finn-server.toml";
+const SERVER_LOG_FILE_NAME: &str = "finn-server.log";
+const finn_HOME: &str = ".finn";
 const finn_CHAIN_DIR: &str = "chain_data";
 /// Node Rest API and V2 Owner API secret
 pub const API_SECRET_FILE_NAME: &str = ".api_secret";

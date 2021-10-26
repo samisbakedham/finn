@@ -344,7 +344,7 @@ fn mine_reorg() {
 	const NUM_BLOCKS_MAIN: u64 = 6; // Number of blocks to mine in main chain
 	const REORG_DEPTH: u64 = 5; // Number of blocks to be discarded from main chain after reorg
 
-	const DIR_NAME: &str = ".mwc_reorg";
+	const DIR_NAME: &str = ".finn_reorg";
 	clean_output_dir(DIR_NAME);
 
 	global::set_local_chain_type(ChainTypes::AutomatedTesting);
@@ -403,10 +403,10 @@ fn mine_reorg() {
 
 #[test]
 fn mine_forks() {
-	clean_output_dir(".mwc2");
+	clean_output_dir(".finn2");
 	global::set_local_chain_type(ChainTypes::AutomatedTesting);
 	{
-		let chain = init_chain(".mwc2", pow::mine_genesis_block().unwrap());
+		let chain = init_chain(".finn2", pow::mine_genesis_block().unwrap());
 		let kc = ExtKeychain::from_random_seed(false).unwrap();
 
 		// add a first block to not fork genesis
@@ -446,16 +446,16 @@ fn mine_forks() {
 		}
 	}
 	// Cleanup chain directory
-	clean_output_dir(".mwc2");
+	clean_output_dir(".finn2");
 }
 
 #[test]
 fn mine_losing_fork() {
-	clean_output_dir(".mwc3");
+	clean_output_dir(".finn3");
 	global::set_local_chain_type(ChainTypes::AutomatedTesting);
 	let kc = ExtKeychain::from_random_seed(false).unwrap();
 	{
-		let chain = init_chain(".mwc3", pow::mine_genesis_block().unwrap());
+		let chain = init_chain(".finn3", pow::mine_genesis_block().unwrap());
 
 		// add a first block we'll be forking from
 		let prev = chain.head_header().unwrap();
@@ -483,12 +483,12 @@ fn mine_losing_fork() {
 		assert_eq!(chain.head_header().unwrap().hash(), b3head.hash());
 	}
 	// Cleanup chain directory
-	clean_output_dir(".mwc3");
+	clean_output_dir(".finn3");
 }
 
 #[test]
 fn longer_fork() {
-	clean_output_dir(".mwc4");
+	clean_output_dir(".finn4");
 	global::set_local_chain_type(ChainTypes::AutomatedTesting);
 	let kc = ExtKeychain::from_random_seed(false).unwrap();
 	// to make it easier to compute the txhashset roots in the test, we
@@ -496,7 +496,7 @@ fn longer_fork() {
 	// then send back on the 1st
 	let genesis = pow::mine_genesis_block().unwrap();
 	{
-		let chain = init_chain(".mwc4", genesis.clone());
+		let chain = init_chain(".finn4", genesis.clone());
 
 		// add blocks to both chains, 20 on the main one, only the first 5
 		// for the forked chain
@@ -528,14 +528,14 @@ fn longer_fork() {
 		assert_eq!(head.hash(), new_head.hash());
 	}
 	// Cleanup chain directory
-	clean_output_dir(".mwc4");
+	clean_output_dir(".finn4");
 }
 
 #[test]
 fn spend_rewind_spend() {
 	global::set_local_chain_type(ChainTypes::AutomatedTesting);
 	util::init_test_logger();
-	let chain_dir = ".mwc_spend_rewind_spend";
+	let chain_dir = ".finn_spend_rewind_spend";
 	clean_output_dir(chain_dir);
 
 	{
@@ -571,8 +571,8 @@ fn spend_rewind_spend() {
 		let tx1 = build::transaction(
 			KernelFeatures::Plain { fee: 20000 },
 			&[
-				build::coinbase_input(consensus::MWC_FIRST_GROUP_REWARD, key_id_coinbase.clone()),
-				build::output(consensus::MWC_FIRST_GROUP_REWARD - 20000, key_id30.clone()),
+				build::coinbase_input(consensus::finn_FIRST_GROUP_REWARD, key_id_coinbase.clone()),
+				build::output(consensus::finn_FIRST_GROUP_REWARD - 20000, key_id30.clone()),
 			],
 			&kc,
 			&pb,
@@ -609,11 +609,11 @@ fn spend_rewind_spend() {
 
 #[test]
 fn spend_in_fork_and_compact() {
-	clean_output_dir(".mwc6");
+	clean_output_dir(".finn6");
 	global::set_local_chain_type(ChainTypes::AutomatedTesting);
 	util::init_test_logger();
 	{
-		let chain = init_chain(".mwc6", pow::mine_genesis_block().unwrap());
+		let chain = init_chain(".finn6", pow::mine_genesis_block().unwrap());
 		let prev = chain.head_header().unwrap();
 		let kc = ExtKeychain::from_random_seed(false).unwrap();
 		let pb = ProofBuilder::new(&kc);
@@ -647,8 +647,8 @@ fn spend_in_fork_and_compact() {
 		let tx1 = build::transaction(
 			KernelFeatures::Plain { fee: 20000 },
 			&[
-				build::coinbase_input(consensus::MWC_FIRST_GROUP_REWARD, key_id2.clone()),
-				build::output(consensus::MWC_FIRST_GROUP_REWARD - 20000, key_id30.clone()),
+				build::coinbase_input(consensus::finn_FIRST_GROUP_REWARD, key_id2.clone()),
+				build::output(consensus::finn_FIRST_GROUP_REWARD - 20000, key_id30.clone()),
 			],
 			&kc,
 			&pb,
@@ -665,8 +665,8 @@ fn spend_in_fork_and_compact() {
 		let tx2 = build::transaction(
 			KernelFeatures::Plain { fee: 20000 },
 			&[
-				build::input(consensus::MWC_FIRST_GROUP_REWARD - 20000, key_id30.clone()),
-				build::output(consensus::MWC_FIRST_GROUP_REWARD - 40000, key_id31.clone()),
+				build::input(consensus::finn_FIRST_GROUP_REWARD - 20000, key_id30.clone()),
+				build::output(consensus::finn_FIRST_GROUP_REWARD - 40000, key_id31.clone()),
 			],
 			&kc,
 			&pb,
@@ -756,7 +756,7 @@ fn spend_in_fork_and_compact() {
 		}
 	}
 	// Cleanup chain directory
-	clean_output_dir(".mwc6");
+	clean_output_dir(".finn6");
 }
 
 /// Test ability to retrieve block headers for a given output
@@ -764,8 +764,8 @@ fn spend_in_fork_and_compact() {
 fn output_header_mappings() {
 	global::set_local_chain_type(ChainTypes::AutomatedTesting);
 	{
-		clean_output_dir(".mwc_header_for_output");
-		let chain = init_chain(".mwc_header_for_output", pow::mine_genesis_block().unwrap());
+		clean_output_dir(".finn_header_for_output");
+		let chain = init_chain(".finn_header_for_output", pow::mine_genesis_block().unwrap());
 		let keychain = ExtKeychain::from_random_seed(false).unwrap();
 		let mut reward_outputs = vec![];
 
@@ -825,7 +825,7 @@ fn output_header_mappings() {
 		}
 	}
 	// Cleanup chain directory
-	clean_output_dir(".mwc_header_for_output");
+	clean_output_dir(".finn_header_for_output");
 }
 
 // Use diff as both diff *and* key_idx for convenience (deterministic private key for test blocks)

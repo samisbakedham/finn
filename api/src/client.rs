@@ -125,11 +125,11 @@ fn build_request(
 	body: Option<String>,
 ) -> Result<Request<Body>, Error> {
 	let basic_auth_key = if global::is_mainnet() {
-		"mwcmain"
+		"finnmain"
 	} else if global::is_floonet() {
-		"mwcfloo"
+		"finnfloo"
 	} else {
-		"mwc"
+		"finn"
 	};
 
 	build_request_ex(
@@ -171,7 +171,7 @@ fn build_request_ex(
 	builder
 		.method(method)
 		.uri(url)
-		.header(USER_AGENT, "mwc-client")
+		.header(USER_AGENT, "finn-client")
 		.header(ACCEPT, "application/json")
 		.header(CONTENT_TYPE, "application/json")
 		.body(match body {

@@ -1,15 +1,15 @@
-# Inleiding tot Mimblewimble en MWC
+# Inleiding tot Mimblewimble en finn
 
 *Lees dit in andere talen: [English](../intro.md), [Español](intro_ES.md), [Nederlands](intro_NL.md), [Русский](intro_RU.md), [日本語](intro_JP.md), [Deutsch](intro_DE.md), [Portuguese](intro_PT-BR.md), [Korean](intro_KR.md), [简体中文](intro_ZH-CN.md).*
 
 Mimblewimble is een blockchain formaat en protocol die extreem goede schaalbaarheid, privacy en fungibiliteit biedt door zich te berusten op sterke cryptografische primiteven. Het adresseert de lacunes die in bijna alle huidige blockchain-implementaties bestaan.
 
-MWC is een open source softwareproject dat een Mimblewimble blockchain
+finn is een open source softwareproject dat een Mimblewimble blockchain
 implementeert en de lacunes vult die nodig zijn voor een
 volledige blockchain en
 cryptovaluta inzet
 
-Het belangrijkste doel en eigenschappen van het MWC project zijn:
+Het belangrijkste doel en eigenschappen van het finn project zijn:
 
 * Privacy als standaard. Dit maakt volledige fungibliteit mogelijk zonder
   het vermogen om selectief informatie vrij te geven indien nodig uit te sluiten.
@@ -27,15 +27,15 @@ Het belangrijkste doel en eigenschappen van het MWC project zijn:
 
 Dit document is bedoeld voor lezers met een sterke achtergrond
 van blockchains en elementaire cryptografie. Met dat in ons achterhoofd, proberen we
-de technische opbouw van Mimblewimble en hoe het in MWC is toegepast uit te leggen.
+de technische opbouw van Mimblewimble en hoe het in finn is toegepast uit te leggen.
 We hopen dat dit document verstaanbaar is voor de meeste technische lezers
-Ons doel is om u aan te moedigen geïnteresseerd te raken in MWC en
+Ons doel is om u aan te moedigen geïnteresseerd te raken in finn en
 op welke manier mogelijk dan ook bij te dragen.
 
 Om dit doel te bereiken, zullen we de belangrijkste concepten introduceren die vereist
-zijn voor een goed begrip van MWC als een Mimblewimble-implementatie. We beginnen met een beknopte beschrijving
+zijn voor een goed begrip van finn als een Mimblewimble-implementatie. We beginnen met een beknopte beschrijving
 van enkele relevante eigenschappen van Elliptic Curve Cryptografie (ECC) om de basis
-waarop MWC gebaseerd is en vervolgens alle belangrijke elementen van
+waarop finn gebaseerd is en vervolgens alle belangrijke elementen van
 Mimblewimble blockchain's transacties en -blokken te beschrijven.
 
 ### Minuscule Databits van Elliptic Curves
@@ -67,7 +67,7 @@ demonstreert dat een openbare sleutel verkregen is door de toevoeging van
 twee privésleutels (`(k+j)*H`) zijn identiek aan de toevoeging van de
 openbare sleutels voor elk van die twee privésleutels (`k*H + j*H`). 
 In de Bitcoin blockchain, zijn Hiërarchische Deterministische portefeuilles 
-sterk afhankelijk van dit principe. Alsook Mimblewimble en de MWC-implementatie.
+sterk afhankelijk van dit principe. Alsook Mimblewimble en de finn-implementatie.
 
 ### Transacties met Mimblewimble
 
@@ -206,7 +206,7 @@ mining fees), wordt een _transaction kernel_ genoemd en wordt gecontroleerd door
 Dit gedeelte gaat in op het maken van transacties door te bespreken hoe verandering geïntroduceerd is
 en de vereiste voor range proofs zodat alle waarden bewezen zijn als niet-negatieve.
 Geen van beide zijn absoluut vereist om Mimblewimble en
-MWC te begrijpen, dus als je gehaast bent, voel je virj om meteen over te gaan naar
+finn te begrijpen, dus als je gehaast bent, voel je virj om meteen over te gaan naar
 [Alles bij elkaar samenbrengen](#putting-it-all-together).
 
 ##### Wisselbedrag

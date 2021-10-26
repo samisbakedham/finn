@@ -147,7 +147,7 @@ pub enum ErrorKind {
 	)]
 	Committed(committed::Error),
 	/// We cannot process data once the finn server has been stopped.
-	#[fail(display = "Stopped (MWC Shutting Down)")]
+	#[fail(display = "Stopped (finn Shutting Down)")]
 	Stopped,
 	/// Internal Roaring Bitmap error
 	#[fail(display = "Roaring Bitmap error")]

@@ -14,7 +14,7 @@
 
 //! Blocks and blockheaders
 
-use crate::consensus::{self, calc_mwc_block_overage, calc_mwc_block_reward, reward};
+use crate::consensus::{self, calc_finn_block_overage, calc_finn_block_reward, reward};
 use crate::core::committed::{self, Committed};
 use crate::core::compact_block::CompactBlock;
 use crate::core::hash::{DefaultHashable, Hash, Hashed, ZERO_HASH};
@@ -413,8 +413,8 @@ impl BlockHeader {
 	/// The "overage" to use when verifying the kernel sums.
 	/// For a block header the overage is 0 - reward.
 	pub fn overage(&self) -> i64 {
-		// MWC strategy
-		(calc_mwc_block_reward(self.height) as i64)
+		// finn strategy
+		(calc_finn_block_reward(self.height) as i64)
 			.checked_neg()
 			.unwrap_or(0)
 	}
@@ -430,11 +430,11 @@ impl BlockHeader {
 			((reward_count * REWARD) as i64).checked_neg().unwrap_or(0)
 		*/
 
-		// MWC DEBUG - want to understand when genesis doesn't have a reward
+		// finn DEBUG - want to understand when genesis doesn't have a reward
 		//if !genesis_had_reward {panic!("total_overage call with genesis_had_reward false");}
 
-		// MWC strategy:
-		(calc_mwc_block_overage(reward_count, genesis_had_reward) as i64)
+		// finn strategy:
+		(calc_finn_block_overage(reward_count, genesis_had_reward) as i64)
 			.checked_neg()
 			.unwrap_or(0)
 	}

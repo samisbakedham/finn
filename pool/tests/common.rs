@@ -201,7 +201,7 @@ where
 {
 	let output_sum = output_values.iter().sum::<u64>() as i64;
 
-	let coinbase_reward: u64 = core::consensus::MWC_FIRST_GROUP_REWARD;
+	let coinbase_reward: u64 = core::consensus::finn_FIRST_GROUP_REWARD;
 
 	let fees: i64 = coinbase_reward as i64 - output_sum;
 	assert!(fees >= 0);

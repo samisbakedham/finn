@@ -180,7 +180,7 @@ impl Server {
 	fn one_finn_at_a_time(config: &ServerConfig) -> Result<Arc<File>, Error> {
 		let path = Path::new(&config.db_root);
 		fs::create_dir_all(&path)?;
-		let path = path.join("mwc.lock");
+		let path = path.join("finn.lock");
 		let lock_file = fs::OpenOptions::new()
 			.read(true)
 			.write(true)
@@ -190,7 +190,7 @@ impl Server {
 			let mut stderr = std::io::stderr();
 			writeln!(
 				&mut stderr,
-				"Failed to lock {:?} (mwc server already running?)",
+				"Failed to lock {:?} (finn server already running?)",
 				path
 			)
 			.expect("Could not write to stderr");
@@ -610,7 +610,7 @@ impl Server {
 			stop_state.clone(),
 		)?;
 
-		warn!("MWC server started.");
+		warn!("finn server started.");
 		Ok(Server {
 			config,
 			p2p: p2p_server,
@@ -657,7 +657,7 @@ impl Server {
 		let tor_dir = if tor_base.is_some() {
 			format!("{}/tor/listener", tor_base.unwrap())
 		} else {
-			format!("{}/tor/listener", "~/.mwc/main")
+			format!("{}/tor/listener", "~/.finn/main")
 		};
 
 		let home_dir = dirs::home_dir()

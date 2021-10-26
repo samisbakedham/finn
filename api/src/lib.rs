@@ -47,7 +47,7 @@ mod stratum_rpc;
 mod types;
 
 pub use crate::auth::{
-	BasicAuthMiddleware, BasicAuthURIMiddleware, MWC_BASIC_REALM, MWC_FOREIGN_BASIC_REALM,
+	BasicAuthMiddleware, BasicAuthURIMiddleware, finn_BASIC_REALM, finn_FOREIGN_BASIC_REALM,
 };
 pub use crate::foreign::Foreign;
 pub use crate::foreign_rpc::ForeignRpc;

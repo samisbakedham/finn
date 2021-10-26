@@ -275,7 +275,7 @@ pub struct ServerConfig {
 impl Default for ServerConfig {
 	fn default() -> ServerConfig {
 		ServerConfig {
-			db_root: "mwc_chain".to_string(),
+			db_root: "finn_chain".to_string(),
 			api_http_addr: "127.0.0.1:3413".to_string(),
 			api_secret_path: Some(".api_secret".to_string()),
 			foreign_api_secret_path: Some(".foreign_api_secret".to_string()),

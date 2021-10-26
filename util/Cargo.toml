@@ -17,15 +17,15 @@ sha3 = "0.9.1"
 base64 = "0.13.0"
 byteorder = "1"
 lazy_static = "1"
-rand = "0.6"
+rand = "0.8.4"
 serde = "1"
 serde_derive = "1"
 log4rs = { version = "0.12", features = ["rolling_file_appender", "compound_policy", "size_trigger", "fixed_window_roller"] }
 log = "0.4"
 walkdir = "2"
 zip = { version = "0.5", default-features = false }
-parking_lot = "0.10"
+parking_lot = "0.11.2"
 zeroize = { version = "1.1", features =["zeroize_derive"] }
 failure = "0.1"
 failure_derive = "0.1"
-finn_secp256k1zkp = { git = "https://github.com/mwcproject/rust-secp256k1-zkp", branch = "master", features = ["bullet-proof-sizing"] }
+finn_secp256k1zkp = { git = "https://github.com/finnproject/rust-secp256k1-zkp", branch = "master", features = ["bullet-proof-sizing"] }

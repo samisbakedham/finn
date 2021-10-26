@@ -2,12 +2,12 @@
 
 ## About
 
-This document describes how to setup and **verify** the MWC full node, wallet and be ready for mining.
+This document describes how to setup and **verify** the finn full node, wallet and be ready for mining.
 
-## MWC QT Wallet
+## finn QT Wallet
 
-Please note, the mwc-qt-wallet available at the [Wallet Download](https://www.mwc.mw/downloads) page is **not for mining**.
-If you are running qt wallet or mwc713, please **do not try to use it for mining**.
+Please note, the finn-qt-wallet available at the [Wallet Download](https://www.finn.mw/downloads) page is **not for mining**.
+If you are running qt wallet or finn713, please **do not try to use it for mining**.
 
 ## Preperquisited
 
@@ -34,73 +34,73 @@ Note: By default connections are not entrypted. If you need SSL connections you 
 
 ## Data Location, data clean up
 
-mwc-node and mwc-wallet data is located in the `~/.mwc` directory.
+finn-node and finn-wallet data is located in the `~/.finn` directory.
 
-mwc-wallet data is located in the `~/.mwc/main/wallet_data/` directory. The most critical piece of data is the wallet seed found at `~/.mwc/main/wallet_data/wallet.seed`.
+finn-wallet data is located in the `~/.finn/main/wallet_data/` directory. The most critical piece of data is the wallet seed found at `~/.finn/main/wallet_data/wallet.seed`.
 
 In case you want to do clean setup, you can delete all directories. Please note, you will **lose any funds in your wallet** in this case.  
 ```
-rm -rf ~/.mwc
+rm -rf ~/.finn
 ``` 
 
 You might need to do this to clean your setup if an error is made.
 
-## Install of MWC node and mwc-wallet
+## Install of finn node and finn-wallet
 
-In this install we will install everything at `~/my_mwc_install`. All commands referred to assume this path.
+In this install we will install everything at `~/my_finn_install`. All commands referred to assume this path.
 
-Download mwc node from [https://github.com/mwcproject/mwc-node/releases/latest]. We are assuming that the resulting file will be located at `~/Downloads/mwc-node-XXXXX-macos.tar.gz`.
+Download finn node from [https://github.com/finnproject/finn-node/releases/latest]. We are assuming that the resulting file will be located at `~/Downloads/finn-node-XXXXX-macos.tar.gz`.
 
-Download mwc-wallet from [https://github.com/mwcproject/mwc-wallet/releases/latest]. We are assuming that the resulting file will be located at `~/Downloads/mwc-wallet-2.4.5-macos.tar.gz`.
+Download finn-wallet from [https://github.com/finnproject/finn-wallet/releases/latest]. We are assuming that the resulting file will be located at `~/Downloads/finn-wallet-2.4.5-macos.tar.gz`.
 
-Now let's install everything into `~/my_mwc_install`.
+Now let's install everything into `~/my_finn_install`.
 
 ```bash
-mkdir ~/my_mwc_install
-cd ~/my_mwc_install
-tar -xvf ~/Downloads/mwc-node-*-macos.tar.gz
-tar -xvf ~/Downloads/mwc-wallet-*-macos.tar.gz
+mkdir ~/my_finn_install
+cd ~/my_finn_install
+tar -xvf ~/Downloads/finn-node-*-macos.tar.gz
+tar -xvf ~/Downloads/finn-wallet-*-macos.tar.gz
 ```
 
 Your output should be something like this:
 ```
-kbay$ mkdir ~/my_mwc_install
-kbay$ cd ~/my_mwc_install
-my_mwc_install kbay$ tar -xvf ~/Downloads/mwc-node-*-macos.tar.gz
-x mwc/
-x mwc/mwc
-my_mwc_install kbay$ tar -xvf ~/Downloads/mwc-wallet-*-macos.tar.gz
-x mwc-wallet/
-x mwc-wallet/mwc-wallet
+kbay$ mkdir ~/my_finn_install
+kbay$ cd ~/my_finn_install
+my_finn_install kbay$ tar -xvf ~/Downloads/finn-node-*-macos.tar.gz
+x finn/
+x finn/finn
+my_finn_install kbay$ tar -xvf ~/Downloads/finn-wallet-*-macos.tar.gz
+x finn-wallet/
+x finn-wallet/finn-wallet
 ```
 
-Now your mwc-node is located at `~/my_mwc_install/mwc/mwc` and your mwc-wallet is located at `~/my_mwc_install/mwc-wallet/mwc-wallet`.
+Now your finn-node is located at `~/my_finn_install/finn/finn` and your finn-wallet is located at `~/my_finn_install/finn-wallet/finn-wallet`.
 
-One common task is to send mined MWC from the mwc-wallet to the Qt wallet. In order to do that, the most convenient method is to use the "file based send". The mwc-wallet command to send is the following:
-
-```
-# mwc-wallet send -m file -d <location_to_save_file> <amount_to_send>
-```
-
-In order to receive it, you will need to click on "receive mwc by file". Select the file created in the last step. A new file saved in the same location as the file from the last step will be created with the suffix .response and this file can be finalized by the mwc-wallet with the following command:
+One common task is to send mined finn from the finn-wallet to the Qt wallet. In order to do that, the most convenient method is to use the "file based send". The finn-wallet command to send is the following:
 
 ```
-# mwc-wallet finalize -i <location_of_response_file>
+# finn-wallet send -m file -d <location_to_save_file> <amount_to_send>
 ```
 
-This will allow for sending of mwc from mwc-wallet into the Qt wallet.
+In order to receive it, you will need to click on "receive finn by file". Select the file created in the last step. A new file saved in the same location as the file from the last step will be created with the suffix .response and this file can be finalized by the finn-wallet with the following command:
+
+```
+# finn-wallet finalize -i <location_of_response_file>
+```
+
+This will allow for sending of finn from finn-wallet into the Qt wallet.
 
 ## Start the node
 
 Start the node for the first run.
 ```
-kbay$ ~/my_mwc_install/mwc/mwc
+kbay$ ~/my_finn_install/finn/finn
 ```
 
 ![](Install_mac_images/scr_node.png)
 
 
-mwc-node has few commands. Run `~/my_mwc_install/mwc/mwc help` to explore them.
+finn-node has few commands. Run `~/my_finn_install/finn/finn help` to explore them.
 
 Please keep your node running until we setup the wallet. You should be able to see that the node was able connect to the peers and download the chain.
 
@@ -111,8 +111,8 @@ Please check that the node was able to create the files and download the data.
 
 Check the files.
 ```
-kbay$ tree ~/.mwc
-~/.mwc
+kbay$ tree ~/.finn
+~/.finn
 └── main
     ├── chain_data
     │   ├── header
@@ -125,7 +125,7 @@ kbay$ tree ~/.mwc
     │   ├── lmdb
     │   │   ├── data.mdb
     │   │   └── lock.mdb
-    │   ├── mwc.lock
+    │   ├── finn.lock
     │   ├── peer
     │   │   ├── data.mdb
     │   │   └── lock.mdb
@@ -142,20 +142,20 @@ kbay$ tree ~/.mwc
     │           ├── pmmr_data.bin
     │           ├── pmmr_hash.bin
     │           └── pmmr_leaf.bin
-    ├── mwc-server.log
-    └── mwc-server.toml
+    ├── finn-server.log
+    └── finn-server.toml
 ``` 
 
 Please note the location of the:
 
-log file: `~/.mwc/mwc-server.log`  
-config: `~/.mwc/mwc-server.toml`
+log file: `~/.finn/finn-server.log`  
+config: `~/.finn/finn-server.toml`
 
-Meanwhile feel free to check the logs at `~/.mwc/mwc-server.log`
+Meanwhile feel free to check the logs at `~/.finn/finn-server.log`
 
 If everything goes well, you shouldn't see anything logged at the "ERROR" level. Output from the following command should be empty
 ```
->  cat ~/.mwc/main/mwc-server.log | grep 'ERROR'
+>  cat ~/.finn/main/finn-server.log | grep 'ERROR'
 ``` 
 
 **Note: It is expected that a single node and wallet only are running per host!** 
@@ -166,25 +166,25 @@ If you see this status, congratulations, your node is running. We can start with
 
 ## Init wallet
 
-If you don't have an mwc-wallet instance, you will need to create a new one. Please note, if you already have an mwc-wallet instance, you can restore it through mnemonic or seed file. It is covered below.
+If you don't have an finn-wallet instance, you will need to create a new one. Please note, if you already have an finn-wallet instance, you can restore it through mnemonic or seed file. It is covered below.
  
-Let's explore first what mwc-wallet can do by running:
+Let's explore first what finn-wallet can do by running:
 
 ```
-kbay$ ~/my_mwc_install/mwc-wallet/mwc-wallet --help
-mwc-wallet 2.4.5
+kbay$ ~/my_finn_install/finn-wallet/finn-wallet --help
+finn-wallet 2.4.5
 The finn Team
-Reference MWC Wallet
+Reference finn Wallet
 
 USAGE:
-    mwc-wallet [FLAGS] [OPTIONS] [SUBCOMMAND]
+    finn-wallet [FLAGS] [OPTIONS] [SUBCOMMAND]
 
 FLAGS:
     -e, --external      Listen on 0.0.0.0 interface to allow external connections (default is 127.0.0.1)
-        --floonet       Run mwc against the Floonet (as opposed to mainnet)
+        --floonet       Run finn against the Floonet (as opposed to mainnet)
     -h, --help          Prints help information
     -s, --show_spent    Show spent outputs on wallet output commands
-        --usernet       Run mwc as a local-only network. Doesn't block peer connections but will not connect to any peer
+        --usernet       Run finn as a local-only network. Doesn't block peer connections but will not connect to any peer
                         or seed
     -V, --version       Prints version information
 
@@ -218,16 +218,16 @@ SUBCOMMANDS:
     submit       Submits a transaction that has already been finalized but not submitted to the network yet
     txs          Display transaction information
 ```
-Any command can be explored by running `help <command>`. For example this command will show you details for 'init':  `~/my_mwc_install/mwc-wallet/mwc-wallet help init`
+Any command can be explored by running `help <command>`. For example this command will show you details for 'init':  `~/my_finn_install/finn-wallet/finn-wallet help init`
 
 
 To create the new wallet please run command below. We strongly recommend to setup the password for your seed. 
 ```
-kbay$ ~/my_mwc_install/mwc-wallet/mwc-wallet init
+kbay$ ~/my_finn_install/finn-wallet/finn-wallet init
 Please enter a password for your new wallet
 Password:
 Confirm Password:
-20191111 18:13:13.180 WARN finn_wallet_impls::seed - Generating wallet seed file at: ~/.mwc/main/wallet_data/wallet.seed
+20191111 18:13:13.180 WARN finn_wallet_impls::seed - Generating wallet seed file at: ~/.finn/main/wallet_data/wallet.seed
 Your recovery phrase is:
 
 cousin cargo avoid sk ....  fee surround valve prepare
@@ -240,13 +240,13 @@ Please store the recovery phrase in the secure place, preferably offline on a ph
 
 If you already have a wallet, you can init it with your existing seed and resync it with a full node. Please note, if your wallet has any coins, you will only see them after a resyncing with the "restore" command.
 ```
-kbay$ ~/my_mwc_install/mwc-wallet/mwc-wallet init -r
+kbay$ ~/my_finn_install/finn-wallet/finn-wallet init -r
 Please enter your recovery phrase:
 phrase> cousin cargo avoid sku  .... en coffee surround valve prepare
 Please provide a new password for the recovered wallet
 Password:
 Confirm Password:
-20191111 18:17:49.394 WARN finn_wallet_impls::seed - Generating wallet seed file at: ~/.mwc/main/wallet_data/wallet.seed
+20191111 18:17:49.394 WARN finn_wallet_impls::seed - Generating wallet seed file at: ~/.finn/main/wallet_data/wallet.seed
 Your recovery phrase is:
 
 cousin cargo avoid sk .... fee surround valve prepare
@@ -254,13 +254,13 @@ cousin cargo avoid sk .... fee surround valve prepare
 Please back-up these words in a non-digital format.
 Command 'init' completed successfully
 
-kbay$ ~/my_mwc_install/mwc-wallet/mwc-wallet check
+kbay$ ~/my_finn_install/finn-wallet/finn-wallet check
 Password:
 20191111 18:22:25.359 WARN finn_wallet_controller::command - Starting wallet check...
 20191111 18:22:25.359 WARN finn_wallet_controller::command - Updating all wallet outputs, please wait ...
 20191111 18:22:25.394 WARN finn_wallet_libwallet::internal::restore - Starting wallet check.
 20191111 18:22:25.665 WARN finn_wallet_libwallet::internal::restore - Checking 895 outputs, up to index 895. (Highest index: 895)
-20191111 18:22:25.666 WARN finn_wallet_libwallet::internal::restore - Scanning 895 outputs in the current MWC utxo set
+20191111 18:22:25.666 WARN finn_wallet_libwallet::internal::restore - Scanning 895 outputs in the current finn utxo set
 20191111 18:22:25.739 WARN finn_wallet_libwallet::internal::restore - Identified 0 wallet_outputs as belonging to this wallet
 20191111 18:22:25.739 WARN finn_wallet_controller::command - Wallet check complete
 Command 'check' completed successfully
@@ -271,11 +271,11 @@ Command 'check' completed successfully
 Please validate that your wallet created the files:
 
 ```
-kbay$ tree ~/.mwc
-~/.mwc
+kbay$ tree ~/.finn
+~/.finn
 └── main
-    ├── mwc-wallet.log
-    ├── mwc-wallet.toml
+    ├── finn-wallet.log
+    ├── finn-wallet.toml
     └── wallet_data
         ├── db
         │   └── lmdb
@@ -287,21 +287,21 @@ kbay$ tree ~/.mwc
 
 Please note the location of the:
 
-logs : `~/.mwc/mwc-wallet.log`  
-config: `~/.mwc/mwc-wallet.toml`
+logs : `~/.finn/finn-wallet.log`  
+config: `~/.finn/finn-wallet.toml`
 
 Confirm that there were no errors during wallet initialization:
 
 ```
->  cat ~/.mwc/main/mwc-wallet.log | grep 'ERROR'
+>  cat ~/.finn/main/finn-wallet.log | grep 'ERROR'
 ```
 
 ## Start Listener for the Wallet
 
-In order to mine, mwc-wallet needs to be run in listening mode. The wallet will build the coinbase transaction for the blocks that your miner mines.
+In order to mine, finn-wallet needs to be run in listening mode. The wallet will build the coinbase transaction for the blocks that your miner mines.
 
 ```
-kbay$ ~/my_mwc_install/mwc-wallet/mwc-wallet listen
+kbay$ ~/my_finn_install/finn-wallet/finn-wallet listen
 Password:
 20191111 18:59:15.332 WARN finn_wallet_controller::controller - Starting HTTP Foreign listener API server at 127.0.0.1:3415.
 20191111 18:59:15.333 WARN finn_wallet_controller::controller - HTTP Foreign listener started.
@@ -314,7 +314,7 @@ Congratulations, if you pass validation, your wallet is ready. Please keep it ru
 
 Please periodically check if logs don't have errors with:
 ```
-> cat ~/.mwc/main/mwc-wallet.log | grep 'ERROR'
+> cat ~/.finn/main/finn-wallet.log | grep 'ERROR'
 ```
 
 Check if Foreign listener API runs well with the command:
@@ -330,21 +330,21 @@ kbay$  curl -d '{"jsonrpc": "2.0", "method": "build_coinbase", "id": 1, "params"
 }
 ```
 
-## Setup mwc-node to run miner locally
+## Setup finn-node to run miner locally
 
-Please update config for your mwc-node.
+Please update config for your finn-node.
 
-- Stop mwc-node if it is running. Please let mwc-wallet run in listening mode.
-- Edit `~/.mwc/main/mwc-server.toml` with your favorite editor.
+- Stop finn-node if it is running. Please let finn-wallet run in listening mode.
+- Edit `~/.finn/main/finn-server.toml` with your favorite editor.
 
 Change the value for `enable_stratum_server` to 
 ```
 #whether stratum server is enabled
 enable_stratum_server = true
 ``` 
-- Start mwc-node
+- Start finn-node
 ```
-kbay$ ~/my_mwc_install/mwc/mwc
+kbay$ ~/my_finn_install/finn/finn
 ``` 
 
 You are ready to to run your miner locally on the same host.
@@ -353,12 +353,12 @@ You are ready to to run your miner locally on the same host.
 
 Check if there any errors are in the node logs
 ```
->  cat ~/.mwc/main/mwc-server.log | grep 'ERROR'
+>  cat ~/.finn/main/finn-server.log | grep 'ERROR'
 ```
 
 Check if stratum is activated. The following line will be present in your log file if your node is configured correctly:
 ```
-> cat ~/.mwc/main/mwc-server.log | grep 'Stratum server started'
+> cat ~/.finn/main/finn-server.log | grep 'Stratum server started'
 20191111 19:32:36.088 WARN finn_servers::mining::stratumserver - Stratum server started on 127.0.0.1:3416
 ```
 
@@ -374,12 +374,12 @@ Connection closed by foreign host.
 ```
 
 
-## Setup mwc-node to run a miner on a different host
+## Setup finn-node to run a miner on a different host
 
-Please update the config for your mwc-node.
+Please update the config for your finn-node.
 
-- Stop mwc-node if it is running. Please let mwc-wallet run in listening mode.
-- Edit `~/.mwc/mwc-server.toml` with your favorite editor.
+- Stop finn-node if it is running. Please let finn-wallet run in listening mode.
+- Edit `~/.finn/finn-server.toml` with your favorite editor.
 
 Change the value for `enable_stratum_server` and `stratum_server_addr` 
 ```
@@ -391,21 +391,21 @@ stratum_server_addr = "0.0.0.0:3416"
 ``` 
 stratum_server_addr needs to listen on 0.0.0.0 in order to accept connections from other hosts.
 
-- Start mwc-node
+- Start finn-node
 ```
-kbay$ ~/my_mwc_install/mwc/mwc
+kbay$ ~/my_finn_install/finn/finn
 ``` 
 
 #### Validate node from local host
 
 Check if there are any errors in the node logs
 ```
->  cat ~/.mwc/main/mwc-server.log | grep 'ERROR'
+>  cat ~/.finn/main/finn-server.log | grep 'ERROR'
 ```
 
 Check if stratum is activated. The following line will be present in your log file if your node is configured correctly:
 ```
-> cat ~/.mwc/main/mwc-server.log | grep 'Stratum server started'
+> cat ~/.finn/main/finn-server.log | grep 'Stratum server started'
 20191111 19:32:36.088 WARN finn_servers::mining::stratumserver - Stratum server started on 0.0.0.0:3416
 ```
 
@@ -448,7 +448,7 @@ Here is how you can find your local IP for mac [http://osxdaily.com/2010/11/21/f
 Please verify that Port Tester shows that your port is open:
 [https://www.yougetsignal.com/tools/open-ports/]
 
-Here is how it looks when I didn't open port at my router, didn't disable firewall, or didn't run mwc-node with a proper setup.
+Here is how it looks when I didn't open port at my router, didn't disable firewall, or didn't run finn-node with a proper setup.
 
 ![](Install_mac_images/port_close.png)
 
@@ -457,13 +457,13 @@ Here how it looks like when I did everything properly.
 ![](Install_mac_images/port_open.png)
 
 **Please note! It doesn't make sense to continue with miner if your port is not open!** This tool works well and if your port is closed it means that the
- router, firewall or mwc-node are not configured correctly. 
+ router, firewall or finn-node are not configured correctly. 
  
 #### Validate stratum connection from your miner's host
 
 If you can ssh to the miner host, please validate with telnet is miner can access the node:
 ```
-kbay$ telnet  <MWC_NODE_PUBLIC_IP> 3416
+kbay$ telnet  <finn_NODE_PUBLIC_IP> 3416
 Trying 24.4.197.142...
 Connected to localhost.
 Escape character is '^]'.
@@ -474,26 +474,26 @@ Connection closed by foreign host.
   
 #### Node setup is DONE for access from the internet.
 
-Congratulations, if you pass all validation steps, you are done with setup for mwc-node and mwc node. 
+Congratulations, if you pass all validation steps, you are done with setup for finn-node and finn node. 
 You can finish miner setup.
 
 
 ## MINER
 
-There are many miner that you can run. MWC miner 100% compartible with finn miner. If you are mining for finn, just redirect to mwc node.
+There are many miner that you can run. finn miner 100% compartible with finn miner. If you are mining for finn, just redirect to finn node.
 
 #### finn miner
 
-MWC clone of finn miner you can get here [https://github.com/mwcproject/finn-miner]
+finn clone of finn miner you can get here [https://github.com/finnproject/finn-miner]
 Please follow the instruction how to set it up.
 
 #### GMiner
 
 If you are rinning GMiner please run.
-User name can have any value. You will see your miner in the mwc-node console under this name.
+User name can have any value. You will see your miner in the finn-node console under this name.
 
-Your server IP should be 127.0.0.1 if you run your miner on the same host that you run mwc node and mwc-wallet.
-Or you should use your mwc-node public IP if it is run on different host. Please check that your port is open and 'Validate stratum connection from your miner side' is passed.
+Your server IP should be 127.0.0.1 if you run your miner on the same host that you run finn node and finn-wallet.
+Or you should use your finn-node public IP if it is run on different host. Please check that your port is open and 'Validate stratum connection from your miner side' is passed.
 
 To run in C31 mode:
 ```
@@ -510,12 +510,12 @@ You might want to check how much coins you was able to main and see the output.
 
 You can view the balance with `info` command
 ```
-~/my_mwc_install/mwc-wallet/mwc-wallet info
+~/my_finn_install/finn-wallet/finn-wallet info
 ```
 
 You can check your outputs with `outputs`
 ```
-~/my_mwc_install/mwc-wallet/mwc-wallet output
+~/my_finn_install/finn-wallet/finn-wallet output
 ```
 
 

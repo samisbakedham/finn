@@ -38,7 +38,7 @@ use self::server_api::StatusHandler;
 use self::transactions_api::TxHashSetHandler;
 use self::version_api::VersionHandler;
 use crate::auth::{
-	BasicAuthMiddleware, BasicAuthURIMiddleware, MWC_BASIC_REALM, MWC_FOREIGN_BASIC_REALM,
+	BasicAuthMiddleware, BasicAuthURIMiddleware, finn_BASIC_REALM, finn_FOREIGN_BASIC_REALM,
 };
 use crate::chain;
 use crate::chain::{Chain, SyncState};
@@ -97,11 +97,11 @@ where
 	.expect("unable to build API router");
 
 	let basic_auth_key = if global::is_mainnet() {
-		"mwcmain"
+		"finnmain"
 	} else if global::is_floonet() {
-		"mwcfloo"
+		"finnfloo"
 	} else {
-		"mwc"
+		"finn"
 	};
 
 	// Add basic auth to v1 API and owner v2 API
@@ -113,7 +113,7 @@ where
 
 		let basic_auth_middleware = Arc::new(BasicAuthMiddleware::new(
 			api_basic_auth,
-			&MWC_BASIC_REALM,
+			&finn_BASIC_REALM,
 			Some("/v2/foreign".into()),
 		));
 		router.add_middleware(basic_auth_middleware);
@@ -138,7 +138,7 @@ where
 
 		let basic_auth_middleware = Arc::new(BasicAuthURIMiddleware::new(
 			api_basic_auth,
-			&MWC_FOREIGN_BASIC_REALM,
+			&finn_FOREIGN_BASIC_REALM,
 			"/v2/foreign".into(),
 		));
 		router.add_middleware(basic_auth_middleware);

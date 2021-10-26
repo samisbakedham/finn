@@ -1,13 +1,13 @@
 # Atomic Swap Marketplace
 
-Atomic Swap Marketplace will use the publisher/subscriber model for message pool maintenance. Mwc-wallets, that are participating in the atomic swap marketpace need to listen for new messages.
+Atomic Swap Marketplace will use the publisher/subscriber model for message pool maintenance. finn-wallets, that are participating in the atomic swap marketpace need to listen for new messages.
 
 The primary concern is how to mitigate the non honest players that can come to the market spaming offers they don't plan to execute.
 
 Here are features that should minimize this problem:
 
 1. Integrity fee. In order to have the right to use the marketplace and publish offers, the trader will need to pay an integrity fee to the miners. This integrity fee will need to be paid daily. The
-   integrity fee amount will depend on the offer amount and can't be smaller then a current transaction fee 0.01 MWC.
+   integrity fee amount will depend on the offer amount and can't be smaller then a current transaction fee 0.01 finn.
    There are will be three fee levels, for exemple:
     - Low: 1 bps or 0.01% of the trade amount.
     - Normal: 10 bps or 0.1% of the trade amount.
@@ -52,7 +52,7 @@ verify the ownership and fees for this integrity_kernel.
 Such integrity fee allows wallets to set filtering rules, so the potentially spam offers, with low fees, can be filtered out.
 The purpose of this output is to prevent massive flooding. In order to flood the network, attacker will need to pay
 at fees for each offers. Since fees are paid to miners, in case of spam attack to the marketplace, the miners will start getting more rewards,
-more miners will come, and MWC network become stronger.
+more miners will come, and finn network become stronger.
 
 It will take few minutes for Qt-wallet, open on market place, to receive all offers that exist.
 Proposed value for this time period is 5 minutes.

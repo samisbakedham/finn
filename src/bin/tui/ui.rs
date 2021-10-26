@@ -100,7 +100,7 @@ impl UI {
 		let mut title_string = StyledString::new();
 		title_string.append(StyledString::styled(
 			format!(
-				"MWC Version {} [{:?}]",
+				"finn Version {} [{:?}]",
 				built_info::PKG_VERSION,
 				global::get_chain_type()
 			),

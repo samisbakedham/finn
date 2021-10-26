@@ -34,7 +34,7 @@ use crate::core::Transaction;
 pub use self::proof::ProofBuilder;
 pub use crate::libtx::error::{Error, ErrorKind};
 
-/// Fee base. Currently 0.001 MWC. The minimal tx fee will be scaled to this value
+/// Fee base. Currently 0.001 finnn. The minimal tx fee will be scaled to this value
 pub const DEFAULT_BASE_FEE: u64 = consensus::MILLI_finn;
 
 /// Transaction fee calculation

@@ -1,13 +1,13 @@
-# MWC Stratum Server extension for Mining Pool
+# finn Stratum Server extension for Mining Pool
 
 ## About
 
-Normally Mining pools need extra functionality to prevent attacks. MWC Stratum Server extension provide additional layer for that. It is expected that 
+Normally Mining pools need extra functionality to prevent attacks. finn Stratum Server extension provide additional layer for that. It is expected that 
 additional layers of attacks preventions are in place as well. If needed, Stratum can be integrated with firewall to increase robustness.
 
 ## Configuration
 
-Here is a default config for the Stratum Server of the MWC Node
+Here is a default config for the Stratum Server of the finn Node
 
 ```
 ################################################
@@ -111,7 +111,7 @@ connections.
 Negative value disable that feature. If you decided to disable it, please think twice, it is possible to create thousands of connections from single IP and 
 overload server before it will start checking to timeouts or closeing extra connection. 
 
-Example: If I specify connection_pace_ms value as 1000 ms and run stratum test miner https://github.com/mwcproject/test
+Example: If I specify connection_pace_ms value as 1000 ms and run stratum test miner https://github.com/finnproject/test
 that will creates one connection every 100 ms.  As a result first 3 will be accepted, then connections 30,40,50,...  will be accpeted. The rest will be rejected.
  
 #### ip_white_list
@@ -128,7 +128,7 @@ Black list of IPs. Please note, it support only IPs, no masks. Normally you shou
 
 #### stratum_tokio_workers
 
--- This option is removed form 3.2.0 release because mwc-node switched to async model. So there is no reasons to wait. Please migrate to sync/wait model.
+-- This option is removed form 3.2.0 release because finn-node switched to async model. So there is no reasons to wait. Please migrate to sync/wait model.
 
 ## REST API  /v2/stratum
 
@@ -155,7 +155,7 @@ Stratum server return every IP address that was seen during last 'ip_pool_ban_hi
 banned - specify if you want to see banned or non banned IPs. null - see all values. 
 
 ```
-curl -u mwcmain --request POST 'http://localhost:13413/v2/stratum' \
+curl -u finnmain --request POST 'http://localhost:13413/v2/stratum' \
 --header 'Content-Type: application/json' \
 
 --data-raw '{
@@ -191,7 +191,7 @@ Respond:
 #### Get single IP  
 
 ```
-curl -u mwcmain --request POST 'http://localhost:13413/v2/stratum' \
+curl -u finnmain --request POST 'http://localhost:13413/v2/stratum' \
 --header 'Content-Type: application/json' \
 --data-raw '{
    "jsonrpc": "2.0",
@@ -224,7 +224,7 @@ Respond:
 #### Clean IP data (unban IP)
 
 ```
-curl -u mwcmain --request POST 'http://localhost:13413/v2/stratum' \
+curl -u finnmain --request POST 'http://localhost:13413/v2/stratum' \
 --header 'Content-Type: application/json' \
 --data-raw '{
    "jsonrpc": "2.0",
@@ -247,13 +247,13 @@ Respond:
 
 ## Configure your OS
 
-mwc-node doesn't manage your TCP connections, including timeouts. As a result you have to configure your OS to handle dropped connections well.
+finn-node doesn't manage your TCP connections, including timeouts. As a result you have to configure your OS to handle dropped connections well.
 
 ### Test (optonal step for verification)
 
 First please check how Stratum handle dropped connections before your changes.
 
-1. Install miner simulatior from https://github.com/mwcproject/test   Check readme for location and usage.
+1. Install miner simulatior from https://github.com/finnproject/test   Check readme for location and usage.
 2. COnfugure startum server and start the node.
 3. Start miner simulatior with few thousands of connections.
 4. Wait untill they will be created.

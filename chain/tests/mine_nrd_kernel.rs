@@ -95,8 +95,8 @@ fn mine_block_with_nrd_kernel_and_nrd_feature_enabled() {
 			relative_height: NRDRelativeHeight::new(1440).unwrap(),
 		},
 		&[
-			build::coinbase_input(consensus::MWC_FIRST_GROUP_REWARD, key_id1.clone()),
-			build::output(consensus::MWC_FIRST_GROUP_REWARD - 20000, key_id2.clone()),
+			build::coinbase_input(consensus::finn_FIRST_GROUP_REWARD, key_id1.clone()),
+			build::output(consensus::finn_FIRST_GROUP_REWARD - 20000, key_id2.clone()),
 		],
 		&keychain,
 		&pb,
@@ -142,8 +142,8 @@ fn mine_invalid_block_with_nrd_kernel_and_nrd_feature_enabled_before_hf() {
 			relative_height: NRDRelativeHeight::new(1440).unwrap(),
 		},
 		&[
-			build::coinbase_input(consensus::MWC_FIRST_GROUP_REWARD, key_id1.clone()),
-			build::output(consensus::MWC_FIRST_GROUP_REWARD - 20000, key_id2.clone()),
+			build::coinbase_input(consensus::finn_FIRST_GROUP_REWARD, key_id1.clone()),
+			build::output(consensus::finn_FIRST_GROUP_REWARD - 20000, key_id2.clone()),
 		],
 		&keychain,
 		&pb,

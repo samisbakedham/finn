@@ -13,13 +13,13 @@ RUN apt -y install build-essential cmake git libgit2-dev clang libncurses5-dev l
 
 WORKDIR /root
 
-RUN git clone https://github.com/mwcproject/mwc-node.git
+RUN git clone https://github.com/finnproject/finn-node.git
 
-WORKDIR /root/mwc-node
+WORKDIR /root/finn-node
 
 RUN cargo build --release
 
-RUN cp target/release/mwc /usr/bin
+RUN cp target/release/finn /usr/bin
 
-CMD ["/usr/bin/mwc"]
+CMD ["/usr/bin/finn"]
 

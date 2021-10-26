@@ -166,11 +166,11 @@ fn test_verify_cut_through_coinbase() -> Result<(), Error> {
 	let mut tx = build::transaction(
 		KernelFeatures::Plain { fee: 0 },
 		&[
-			build::coinbase_input(consensus::MWC_FIRST_GROUP_REWARD, key_id1.clone()),
-			build::coinbase_input(consensus::MWC_FIRST_GROUP_REWARD, key_id2.clone()),
-			build::output(consensus::MWC_FIRST_GROUP_REWARD, key_id1.clone()),
+			build::coinbase_input(consensus::finnn_FIRST_GROUP_REWARD, key_id1.clone()),
+			build::coinbase_input(consensus::finnn_FIRST_GROUP_REWARD, key_id2.clone()),
+			build::output(consensus::finnn_FIRST_GROUP_REWARD, key_id1.clone()),
 			build::output(
-				consensus::MWC_FIRST_GROUP_REWARD - 100_000_000,
+				consensus::finnn_FIRST_GROUP_REWARD - 100_000_000,
 				key_id2.clone(),
 			),
 			build::output(100_000_000, key_id3.clone()),

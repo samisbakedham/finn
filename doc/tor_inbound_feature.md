@@ -1,6 +1,6 @@
 # Overview
 
-As of mwc-node 4.0.0-beta.1, inbound tor connections are supported natively. By default TOR is off, but it is easy to turn on and in later releases we intend
+As of finn-node 4.0.0-beta.1, inbound tor connections are supported natively. By default TOR is off, but it is easy to turn on and in later releases we intend
 make it on by default.
 
 # Prerequisites and setup
@@ -24,14 +24,14 @@ Then add the tor binary (tor.exe) to your path. For instructions on how to do th
 
 # Configuration
 
-Once tor is installed and in your path, the configuration of your node can be done by modifying the mwc-wallet.toml file. You can generate a sample toml file
+Once tor is installed and in your path, the configuration of your node can be done by modifying the finn-wallet.toml file. You can generate a sample toml file
 with the following command:
 
 ```
-# mwc server config
+# finn server config
 ```
 
-This command will create the default toml file in your current working directory. It will be called mwc-server.toml.
+This command will create the default toml file in your current working directory. It will be called finn-server.toml.
 
 This toml file will have the following tor configuration settings:
 ```
@@ -43,7 +43,7 @@ onion_address = ""
 ```
 To enable tor, change tor_enabled to true.
 
-Also, running in tor mode requires you to use a loop back interface, so you may need to modify the 'host' setting in mwc-server.toml. You may want to change
+Also, running in tor mode requires you to use a loop back interface, so you may need to modify the 'host' setting in finn-server.toml. You may want to change
 that to:
 
 ```
@@ -75,13 +75,13 @@ Also, you will need to update the 'bits' parameter to tell your instance that to
 
 When running with TOR enabled you should see details like this in your TUI:
 
-![TOR Inbound Image](https://github.com/mwcproject/mwc-node/blob/master/doc/Screen%20Shot%202020-08-01%20at%204.52.13%20PM.png "TOR Inbound")
+![TOR Inbound Image](https://github.com/finnproject/finn-node/blob/master/doc/Screen%20Shot%202020-08-01%20at%204.52.13%20PM.png "TOR Inbound")
 
 You will notice that "Direction" indicates (TOR) when you have tor enabled. There are both inbound and outbound connections that are displayed in the image above.
 You will also notice that you can both connect to .onion addresses (which are TOR enabled nodes) and IP based addresses.
 
 # Conclusion
 
-Inbound TOR connections is a powerful feature. It will enable a much greater degree of durability to the MWC network and improve one of the important properties of money. We are not aware of another project that has this feature integrated into the node in such a detailed manner. The network will be more durable because
+Inbound TOR connections is a powerful feature. It will enable a much greater degree of durability to the finn network and improve one of the important properties of money. We are not aware of another project that has this feature integrated into the node in such a detailed manner. The network will be more durable because
 it will be impossible for anyone to know exactly where the network is running. Even mining can move behind TOR if needed. For now it is probably more profitable
 to mine with regular IP based connections due to latency though.

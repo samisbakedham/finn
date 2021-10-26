@@ -2,9 +2,9 @@
 
 ## Prerequisites 
 
-You should already have MWC node is up and running. The MWC wallet need to be init and ready for usage.
+You should already have finn node is up and running. The finn wallet need to be init and ready for usage.
 
-Please check for more details at [MWC floonet](https://github.com/cgilliard/mwc/blob/master/doc/mwc_floonet.md).  
+Please check for more details at [finn floonet](https://github.com/cgilliard/finn/blob/master/doc/finn_floonet.md).  
 
 ## Web Wallet Security
 
@@ -13,7 +13,7 @@ We don't recomment using web wallet.
 
 ## Install Web Wallet
 
-finn project has a web wallet which is compartible with MWC wallet. It is using Angilar to run it.
+finn project has a web wallet which is compartible with finn wallet. It is using Angilar to run it.
 
 ### Install Angular CLI
 
@@ -35,11 +35,11 @@ To install the CLI using npm, open a terminal/console window and enter the follo
 npm install -g @angular/cli
 ```
 
-### Update MWC wallet settings
+### Update finn wallet settings
 
-Open the `mwc-wallet.toml` and disable owner API authentification by commenting the line:
+Open the `finn-wallet.toml` and disable owner API authentification by commenting the line:
 ```text
-#api_secret_path = "/Users/kbay/.mwc/floo/.api_secret"
+#api_secret_path = "/Users/kbay/.finn/floo/.api_secret"
 ```
 Change Owner API port to 13420 
 ```text
@@ -52,10 +52,10 @@ Get the finn web wallet sources
 ```bash
 > git clone git@github.com:mimblewimble/finn-web-wallet.git
 ```
-Make sure that MWC node is running. Start MWC wallet in listening mode.
+Make sure that finn node is running. Start finn wallet in listening mode.
 ```bash
 > cd <wallet_dir>
-> mwc wallet listen
+> finn wallet listen
 ```
 Start web wallet
 ```bash

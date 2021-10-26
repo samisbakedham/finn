@@ -20,10 +20,10 @@ use hyper::{Body, Request, Response, StatusCode};
 use ring::constant_time::verify_slices_are_equal;
 
 lazy_static! {
-	pub static ref MWC_BASIC_REALM: HeaderValue =
-		HeaderValue::from_str("Basic realm=MWC-API").unwrap();
-	pub static ref MWC_FOREIGN_BASIC_REALM: HeaderValue =
-		HeaderValue::from_str("Basic realm=MWCForeignAPI").unwrap();
+	pub static ref finn_BASIC_REALM: HeaderValue =
+		HeaderValue::from_str("Basic realm=finn-API").unwrap();
+	pub static ref finn_FOREIGN_BASIC_REALM: HeaderValue =
+		HeaderValue::from_str("Basic realm=finnForeignAPI").unwrap();
 }
 
 // Basic Authentication Middleware

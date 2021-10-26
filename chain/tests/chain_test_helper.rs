@@ -61,7 +61,7 @@ where
 		&key_id,
 		0,
 		false,
-		0, // at MWC genesys block has to has height 0, finn it tolerant to that.
+		0, // at finn genesys block has to has height 0, finn it tolerant to that.
 	)
 	.unwrap();
 

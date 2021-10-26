@@ -1,33 +1,33 @@
-This page is designed to answer some common questions regarding mwc-wallet and fixing issues around sending coins that are
+This page is designed to answer some common questions regarding finn-wallet and fixing issues around sending coins that are
 either locked or inaccessible.
 
-First thing to understand is that unlike Bitcoin wallets, MWC (which is a fork of finn) wallets can get out of sync with
+First thing to understand is that unlike Bitcoin wallets, finn (which is a fork of finn) wallets can get out of sync with
 their full node. This is a common occurance especially when mining. What happens is, if your miner wins a block that is
 orphaned, your wallet will not know about it until you resync with the check or restore command. When you try to send the coins without resyncing, and one of your
 outputs has been orphaned, you will get errors. It may be complicated to get out from these errors as we will discuss so, it's
-highly reccomended that before you send any coins from a mwc-wallet that has been mining, you stop your listener by terminating
-mwc-wallet listen process and then run an "mwc-wallet check". This will, in most cases avoid you getting into any problems
+highly reccomended that before you send any coins from a finn-wallet that has been mining, you stop your listener by terminating
+finn-wallet listen process and then run an "finn-wallet check". This will, in most cases avoid you getting into any problems
 because any orphaned blocks will be removed from your wallet and you will then only be able to send valid transactions.
 
-So, to summarize, before sending coins from your mwc-wallet, do the following:
+So, to summarize, before sending coins from your finn-wallet, do the following:
 
-1.) Stop your mwc-wallet listen process.
-# kill <mwc-wallet listen pid> (or otherwise exit)
-2.) Run mwc-wallet check:
-# mwc-wallet check
+1.) Stop your finn-wallet listen process.
+# kill <finn-wallet listen pid> (or otherwise exit)
+2.) Run finn-wallet check:
+# finn-wallet check
 3.) Send coins
-# mwc-wallet send --help (to see options for sending).
+# finn-wallet send --help (to see options for sending).
 
 Please note that if you have an orphaned block, your balance may be less than your wallet thought it was.
 
 In addition to the above procedure, you may need to cancel transactions that failed. To do this use the following command:
-# mwc-wallet cancel -t <tx_id>
+# finn-wallet cancel -t <tx_id>
 
 You may obtain the txid with the following command:
-# mwc-wallet txs
+# finn-wallet txs
 
 If you don't follow this procedure or you still have problems you may have to do more to fix the problem. If you get errors with
-your send command and mwc-wallet check does not resolve them, you may need to create a new mwc-wallet directory and "restore"
+your send command and finn-wallet check does not resolve them, you may need to create a new finn-wallet directory and "restore"
 your wallet.
 
 To do this do the following:
@@ -36,16 +36,16 @@ To do this do the following:
 2.) Change directory to wallet_restore
 # cd wallet_restore
 3.) Init your wallet with the recovery seed:
-# mwc-wallet init -h -r
+# finn-wallet init -h -r
 You will be prompted to enter your recovery seed phrase.
 4.) Restore the wallet:
-# mwc-wallet restore
+# finn-wallet restore
 
 Now you can try to send again and finally, if you still have problems, in particular if your wallet says that the full
 node returned a 500 error, you may need to resync your full node. To do this, stop your full node, delete the "chain_data"
-directory, which is by default in ~/.mwc/main/chain_data and restart your node. After it resyncs, you should be able to
+directory, which is by default in ~/.finn/main/chain_data and restart your node. After it resyncs, you should be able to
 send the coins successfully.
 
 Finally if this guide seems too complicated, we'd highly suggest that you use one of our pools which can be found on our
-mining page: https://www.mwc.mw/miners. Both pools are operated by devs that are familiar with finn and finn forks. They
+mining page: https://www.finn.mw/miners. Both pools are operated by devs that are familiar with finn and finn forks. They
 will already do all of this and you will not need to worry about dealing with these issues.

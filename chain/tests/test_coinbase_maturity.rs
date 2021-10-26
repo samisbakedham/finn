@@ -38,7 +38,7 @@ fn clean_output_dir(dir_name: &str) {
 #[test]
 fn test_coinbase_maturity() {
 	let _ = env_logger::init();
-	let chain_dir = ".mwc_coinbase";
+	let chain_dir = ".finn_coinbase";
 	clean_output_dir(chain_dir);
 	global::set_local_chain_type(ChainTypes::AutomatedTesting);
 
@@ -92,7 +92,7 @@ fn test_coinbase_maturity() {
 
 		let prev = chain.head_header().unwrap();
 
-		let amount = consensus::MWC_FIRST_GROUP_REWARD;
+		let amount = consensus::finn_FIRST_GROUP_REWARD;
 
 		let lock_height = 1 + global::coinbase_maturity();
 		assert_eq!(lock_height, 4);
@@ -174,7 +174,7 @@ fn test_coinbase_maturity() {
 
 			let prev = chain.head_header().unwrap();
 
-			let amount = consensus::MWC_FIRST_GROUP_REWARD;
+			let amount = consensus::finn_FIRST_GROUP_REWARD;
 
 			let lock_height = 1 + global::coinbase_maturity();
 			assert_eq!(lock_height, 4);

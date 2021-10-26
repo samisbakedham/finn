@@ -102,13 +102,13 @@ pub const TESTING_TXHASHSET_ARCHIVE_INTERVAL: u64 = 10;
 /// Number of blocks to reuse a txhashset zip for.
 pub const TXHASHSET_ARCHIVE_INTERVAL: u64 = 12 * 60;
 
-/// MWC - all DNS hosts are updated with seed1.mwc.mw/seed2.mwc.mw and others
+/// finn - all DNS hosts are updated with seed1.finn.mw/seed2.finn.mw and others
 pub const MAINNET_DNS_SEEDS: &'static [&'static str] = &[
-	"mainnet.seed1.mwc.mw",                                           // cpg
-	"mainnet.seed2.mwc.mw",                                           // cpg
-	"greg1.mainnet.seed.mwc.mw",                                      // Greg
-	"greg2.mainnet.seed.mwc.mw",                                      // Greg
-	"mwcseed.ddns.net",                                               // cpg
+	"mainnet.seed1.finn.mw",                                           // cpg
+	"mainnet.seed2.finn.mw",                                           // cpg
+	"greg1.mainnet.seed.finn.mw",                                      // Greg
+	"greg2.mainnet.seed.finn.mw",                                      // Greg
+	"finnseed.ddns.net",                                               // cpg
 	"uukwrgtxogz6kkpcejssb7aenb7ey7pr3h5i4llhse445dfpbp63osyd.onion", // 2o_main_410_tor
 	"xsjhexie5v7gxmdkvzkzb4qifywnolb6v22wzvppscs2gog6ljribuad.onion", // 2m_main_floo_master_tor
 	"ltjbwsexjixh5p2qxjohxd342fxhag7ljuvkjnnmkuu6wer6cg4skoad.onion", // 2mb_main_410_tor
@@ -118,8 +118,8 @@ pub const MAINNET_DNS_SEEDS: &'static [&'static str] = &[
 ];
 /// DNS Seed for floonet
 pub const FLOONET_DNS_SEEDS: &'static [&'static str] = &[
-	"seed1.mwc.mw",
-	"seed2.mwc.mw",
+	"seed1.finn.mw",
+	"seed2.finn.mw",
 	"wt635fgwmhokk25lv7y2jvrg63mokg7nfni5owrtzalz3nx22dgjytid.onion", // 2sy-floo-master-tor
 	"kin4i3wohlsqlzrdwdlowh2kaa7wtkxsvp6asn7vttspnrwowgquglyd.onion", // 2mb_floo_410_tor
 	"vstdjxrzh67udhm3fedanul2sy7fwudasjmwxy54pady6dxclty2zmqd.onion", // 2p_floo_410_arch_tor
@@ -168,7 +168,7 @@ lazy_static! {
 	/// If disabled NRD kernels are invalid regardless of header version or block height.
 	pub static ref GLOBAL_NRD_FEATURE_ENABLED: OneTime<bool> = OneTime::new();
 
-	/// Running flag for MWC node.
+	/// Running flag for finn node.
 	pub static ref SERVER_RUNNING: Arc<AtomicBool> =
 			Arc::new(AtomicBool::new(true));
 }
@@ -240,7 +240,7 @@ pub fn is_nrd_enabled() -> bool {
 
 /// Return either a cuckoo context or a cuckatoo context
 /// Single change point
-/// MWC: We modify this to launch with cuckarood only on both floonet and mainnet
+/// finn: We modify this to launch with cuckarood only on both floonet and mainnet
 pub fn create_pow_context<T>(
 	_height: u64,
 	edge_bits: u8,

@@ -21,14 +21,14 @@ fn comments() -> HashMap<String, String> {
 	retval.insert(
 		"[server]".to_string(),
 		"
-# Generated Server Configuration File for MWC
+# Generated Server Configuration File for finn
 #
-# When running the mwc executable without specifying any command line
+# When running the finn executable without specifying any command line
 # arguments, it will look for this file in two places, in the following
 # order:
 #
 # -The working directory
-# -[user home]/.mwc
+# -[user home]/.finn
 #
 
 #########################################
@@ -74,7 +74,7 @@ fn comments() -> HashMap<String, String> {
 	retval.insert(
 		"db_root".to_string(),
 		"
-#the directory, relative to current, in which the MWC blockchain
+#the directory, relative to current, in which the finn blockchain
 #is stored
 "
 		.to_string(),

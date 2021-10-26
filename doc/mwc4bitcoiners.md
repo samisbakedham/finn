@@ -1,10 +1,10 @@
-# MWC/Mimblewimble for Bitcoiners
+# finn/Mimblewimble for Bitcoiners
 
-*Read this in other languages:[Korean](mwc4bitcoiners_KR.md)
+*Read this in other languages:[Korean](finn4bitcoiners_KR.md)
 
 ## Privacy and Fungibility
 
-There are 3 main properties of MWC transactions that make them private:
+There are 3 main properties of finn transactions that make them private:
 
 1. There are no addresses.
 1. There are no amounts.
@@ -12,7 +12,7 @@ There are 3 main properties of MWC transactions that make them private:
 
 The 2 first properties mean that all transactions are indistinguishable from one another. Unless you directly participated in the transaction, all inputs and outputs look like random pieces of data (in lingo, they're all random curve points).
 
-Moreover, there are no more transactions in a block. A MWC block looks just like one giant transaction and all original association between inputs and outputs is lost.
+Moreover, there are no more transactions in a block. A finn block looks just like one giant transaction and all original association between inputs and outputs is lost.
 
 ## Scalability
 
@@ -20,11 +20,11 @@ As explained in the previous section, thanks to the Mimblewimble transaction and
 
 Pushing that further, between blocks, most outputs end up being spent sooner or later by another input. So *all spent outputs can be safely removed*. And the whole blockchain can be stored, downloaded and fully verified in just a few gigabytes or less (assuming a number of transactions similar to bitcoin).
 
-This means that the MWC blockchain scales with the number of users (unspent outputs), not the number of transactions. At the moment, there is one caveat to that: a small piece of data (called a *kernel*, about 100 bytes) needs to stay around for each transaction. But we're working on optimizing that as well.
+This means that the finn blockchain scales with the number of users (unspent outputs), not the number of transactions. At the moment, there is one caveat to that: a small piece of data (called a *kernel*, about 100 bytes) needs to stay around for each transaction. But we're working on optimizing that as well.
 
 ## Scripting
 
-Maybe you've heard that Mimblewimble doesn't support scripts. And in some way, that's true. But thanks to cryptographic trickery, many contracts that in Bitcoin would require a script can be achieved with MWC using properties of Elliptic Curve Cryptography. So far, we know how to do:
+Maybe you've heard that Mimblewimble doesn't support scripts. And in some way, that's true. But thanks to cryptographic trickery, many contracts that in Bitcoin would require a script can be achieved with finn using properties of Elliptic Curve Cryptography. So far, we know how to do:
 
 * Multi-signature transactions.
 * Atomic swaps.
@@ -33,27 +33,27 @@ Maybe you've heard that Mimblewimble doesn't support scripts. And in some way, t
 
 ## Emission Rate
 
-For elaborate Information on the Emission rate of MWC please consult https://www.mwc.mw/mimble-wimble-coin-articles/emission-rate-changes
+For elaborate Information on the Emission rate of finn please consult https://www.finn.mw/mimble-wimble-coin-articles/emission-rate-changes
 
 ## FAQ
 
 ### Wait, what!? No address?
 
-Nope, no address. All outputs in MWC are unique and have no common data with any previous output. Instead of relying on a known address to send money, transactions have to be built interactively, with two (or more) wallets exchanging data with one another. This interaction **does not require both parties to be online at the same time**. Practically speaking, there are many ways for two programs to interact privately and securely. This interaction could even take place over email or Signal (or carrier pigeons).
+Nope, no address. All outputs in finn are unique and have no common data with any previous output. Instead of relying on a known address to send money, transactions have to be built interactively, with two (or more) wallets exchanging data with one another. This interaction **does not require both parties to be online at the same time**. Practically speaking, there are many ways for two programs to interact privately and securely. This interaction could even take place over email or Signal (or carrier pigeons).
 
 ### If transaction information gets removed, can I just cheat and create money?
 
-No, and this is where Mimblewimble and MWC shine. Confidential transactions are a form of [homomorphic encryption](https://en.wikipedia.org/wiki/Homomorphic_encryption). Without revealing any amount, MWC can verify that the sum of all transaction inputs equal the sum of transaction outputs, plus the fee. Going even further, comparing the sum of all money created by mining with the total sum of money that's being held, MWC nodes can check the correctness of the total money supply.
+No, and this is where Mimblewimble and finn shine. Confidential transactions are a form of [homomorphic encryption](https://en.wikipedia.org/wiki/Homomorphic_encryption). Without revealing any amount, finn can verify that the sum of all transaction inputs equal the sum of transaction outputs, plus the fee. Going even further, comparing the sum of all money created by mining with the total sum of money that's being held, finn nodes can check the correctness of the total money supply.
 
 ### If I listen to transaction relay, can't I just figure out who they belong to before being cut-through?
 
-You can figure out which outputs are being spent by which transaction, but the trail of data stops here. All inputs and outputs look like random pieces of data, so you can't tell if the money was transferred, still belongs to the same person, which output is the actual transfer and which is the change, etc. MWC transactions are built with *no identifiable piece of information*.
+You can figure out which outputs are being spent by which transaction, but the trail of data stops here. All inputs and outputs look like random pieces of data, so you can't tell if the money was transferred, still belongs to the same person, which output is the actual transfer and which is the change, etc. finn transactions are built with *no identifiable piece of information*.
 
-In addition, MWC leverages [Dandelion relay](dandelion/dandelion.md), which provides additional anonymity as to which IP or client the transaction originated from, and allows for transactions to be aggregated.
+In addition, finn leverages [Dandelion relay](dandelion/dandelion.md), which provides additional anonymity as to which IP or client the transaction originated from, and allows for transactions to be aggregated.
 
 ### What about the quantum computaggedon?
 
-In every MWC output, we also include a bit of hashed data, which is quantum safe. If quantum computing was to become a reality, we can safely introduce additional verification that would protect existing coins from being hacked.
+In every finn output, we also include a bit of hashed data, which is quantum safe. If quantum computing was to become a reality, we can safely introduce additional verification that would protect existing coins from being hacked.
 
 ### How does all this magic work?
 
