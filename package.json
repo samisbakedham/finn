@@ -1,0 +1,22 @@
+{
+  "name": "finn",
+  "version": "1.0.0",
+  "description": "[![Build Status](https://dev.azure.com/Finn-project/Finn%20Project/_apis/build/status/Finnproject.Finn-node?branchName=master)](https://dev.azure.com/Finn-project/Finn%20Project/_build/latest?definitionId=2&branchName=master) [![Chat](https://img.shields.io/discord/539232227360243712)](https://discord.gg/n5dZaty) [![Support](https://img.shields.io/badge/support-on%20Discord-brightgreen.svg)](https://discord.gg/n5dZaty) [![Documentation Wiki](https://img.shields.io/badge/doc-wiki-blue.svg)](https://github.com/mimblewimble/docs/wiki) [![Release Version](https://img.shields.io/github/v/release/Finnproject/Finn-node.svg)](https://github.com/Finnproject/Finn-node/releases) [![License](https://img.shields.io/github/license/Finnproject/Finn-node.svg)](https://github.com/Finnproject/Finn-node/blob/master/LICENSE)",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/samisbakedham/finn.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/samisbakedham/finn/issues"
+  },
+  "homepage": "https://github.com/samisbakedham/finn#readme"
+}
